@@ -1,0 +1,174 @@
+#register, #login {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#register .authContainer {
+    height: 35rem;
+}
+
+#login .authContainer {
+    height: 36rem;
+}
+
+.authContainer {
+    width: 36rem;
+    border: 1px solid #C1C1C1;
+    padding: 2rem;
+    border-radius: 1.25rem;
+}
+
+.authHead {
+    text-align: center;
+}
+
+.authHead h2 {
+    line-height: 2.42rem;
+    font-size: 2rem;
+    margin: 1.5rem 0;
+}
+
+.authHead h3 {
+    line-height: 1.81rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.authHead p {
+    margin: 1rem 0;
+    color: #000000;
+}
+
+.inputContainer .inputs {
+    margin: 1rem auto;
+}
+
+.inputContainer .inputs label {
+    font-size: 1rem;
+    line-height: 1.21;
+    font-weight: 400;
+}
+.inputContainer .inputs input{
+    width: 100%;
+    padding: 0.625rem 1.25rem;
+    border: 1px solid #C1C1C1;
+    margin-top: 0.5rem;
+    border-radius: 0.37rem;
+}
+
+.authControl button {
+    padding: 1.125rem 9.25rem 1.125rem 9.25rem;
+    width: 100%;
+    color: #fff;
+    background: #000000;
+    border-radius: 0.37rem;
+    margin: 2rem auto;
+    font-size: 1rem;
+}
+
+.authFooter {
+    text-align: center;
+}
+
+.authFooter p,  .authHead p{
+    font-size: 1rem;
+    line-height: 19.36px;
+    color: #333333;
+    font-weight: 400;
+}
+
+.authFooter p span{
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+/* Otp */
+
+#register .otpContainer {
+    height: 28.31rem;
+}
+
+.otpHeader {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.otpHeader h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 2rem auto;
+    line-height: 2.42rem;
+}
+
+.otpHeader p:last-child {
+    font-weight: bold;
+}
+
+.inputContainer .otpText {
+    margin-bottom: 0.5rem;
+}
+
+.otpInputs {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+.otpContainer input{
+    height: 3rem;
+    width: 2.87rem;
+    border: 1px solid #C1C1C1;
+    border-radius: 0.37rem;
+    text-align: center;
+}
+
+#register .otpContainer .authControl button {
+    margin: 3rem auto;
+}
+
+@media screen and (max-width: 769px) {
+    .authContainer {
+        width:  90vw;
+    }
+
+    .authControl button {
+        padding: 1.125rem 3.25rem 1.125rem 3.25rem;
+    }
+}
+
+@media screen and (max-width: 465px) {
+    .authHead h2, .otpHeader h2 {
+        font-size: 1.5rem;
+    }
+    .authHead h3 {
+        font-size: 1rem;
+    }
+
+    .authFooter p, .authHead p {
+        font-size: 0.8rem;
+    }
+}
+
+@media screen and (max-width: 350px) {
+
+    .authHead h2, .otpHeader h2 {
+        font-size: 1.3rem;
+    }
+
+    .authHead h3 {
+        font-size: 0.95rem;
+    }
+
+    .otpInputs {
+        gap: 0;
+    }
+    .otpInputs input {
+        height: 2rem;
+        width: 1.5rem;
+        border-radius: 0.1rem;
+    }
+}

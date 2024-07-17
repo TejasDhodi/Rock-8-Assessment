@@ -1,0 +1,95 @@
+#category {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.categoryContainer {
+    height: 556px;
+    border: 1px solid;
+    width: 576px;
+    border-radius: 20px;
+    padding: 2rem 3rem;
+}
+
+.categoryHeads {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+
+.categoryHeads h1 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.categories h3 {
+    margin-bottom: 1.5rem;
+    font-size: 20px;
+}
+
+.categoryLists {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    align-items: center;
+}
+
+.categoryLists input[type='checkbox']{
+    position: relative;
+    width: 24px;
+    height: 24px;
+    background-color: #CCCCCC;
+    border-radius: 5px;
+    appearance: none;
+    cursor: pointer;
+}
+
+.categoryLists input[type='checkbox']:checked {
+    background-color: #000000;
+}
+
+.categoryLists input[type='checkbox']::before {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 9px;
+    width: 5px;
+    height: 13px;
+    border: 2px solid transparent;
+    border-left: none;
+    border-top: none;
+    transform: rotate(45deg) scale(1.1);
+    transition: 300ms ease;
+}
+
+.categoryLists input[type='checkbox']:checked::before {
+    border-color: #fff;
+}
+
+.categoryContainer .controls {
+    margin: 4rem auto;
+}
+
+.categoryContainer .controls button, .pageNum {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.categoryContainer .controls button:first-child, .categoryContainer .controls button:last-child, .pageNum {
+    margin-right: 1rem;
+    color: #ACACAC;
+}
+
+
+.activeNum, .activePageBtn {
+    transform: scale(1.5);
+    font-size: bold;
+    color: #000;
+}
+
