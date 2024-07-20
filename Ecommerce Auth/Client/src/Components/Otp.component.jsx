@@ -84,7 +84,7 @@ const Otp = ({ email, receivedOtp, inputs }) => {
       const joinedOtp = Number(otpValues.join(''));
       console.log(joinedOtp);
 
-      const { status, data } = await axios.post('http://localhost:3000/api/v1/auth/registerUser', {
+      const { status, data } = await axios.post('http://localhost:5000/api/v1/auth/registerUser', {
         email: inputs.email,
         name: inputs.name,
         password: inputs.password,

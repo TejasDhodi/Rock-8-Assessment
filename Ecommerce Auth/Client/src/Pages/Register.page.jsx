@@ -47,7 +47,7 @@ const Register = () => {
             } else if (!isValidPassword(inputs.password)) {
                 setErrorMsg('Password must contain atleast 8 character and one special character')
             } else {
-                const { status, data } = await axios.post('http://localhost:3000/api/v1/auth/registerUser/sendOtp', { email: inputs.email }, {
+                const { status, data } = await axios.post('http://localhost:5000/api/v1/auth/registerUser/sendOtp', { email: inputs.email }, {
                     headers: {
                         "Content-Type": 'application/json'
                     }

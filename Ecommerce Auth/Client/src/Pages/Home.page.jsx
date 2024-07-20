@@ -1,5 +1,6 @@
 import React, { useEffect, useId, useState } from 'react'
 import { useSelector } from 'react-redux'
+import {ColorRing} from 'react-loader-spinner'
 import axios from 'axios'
 import '../Styles/Home.css'
 
@@ -14,7 +15,8 @@ const Home = () => {
     });
     const [pageBtn, setpageBtn] = useState(null);
 
-    const userId = useSelector(state => state.authentication.profile?._id);
+    const userId = useSelector(state => state.authentication.profile?.id);
+    const userToken = useSelector(state => state.authentication.authToken)
     console.log('user id : ', userId);
 
     let categories = [
@@ -100,7 +102,11 @@ const Home = () => {
             let updatedcategories = [];
 
             // Fetch Existing categories
-            const { data: existingData } = await axios.get(`http://localhost:3000/api/v1/category/${userId}`);
+            const { data: existingData } = await axios.get(`http://localhost:5000/api/v1/category/${userId}`, {
+                headers: {
+                    Authorization: `Bearer ${userToken}`
+                }
+            });
             const existingCategories = existingData.selectedCategory?.category || [];
 
             if (checked) {
@@ -113,12 +119,12 @@ const Home = () => {
             setSavedCategory(updatedcategories)
 
             // Sending update or new reuest
-            const { data } = await axios.put('http://localhost:3000/api/v1/category/addCategory', {
+            const { data } = await axios.put('http://localhost:5000/api/v1/category/addCategory', {
                 category: updatedcategories,
-                userId
             }, {
                 headers: {
-                    "Content-Type": 'application/json'
+                    "Content-Type": 'application/json',
+                    Authorization: `Bearer ${userToken}`
                 }
             })
 
@@ -131,7 +137,11 @@ const Home = () => {
 
     const getCategorydata = async () => {
         try {
-            const { status, data } = await axios.get(`http://localhost:3000/api/v1/category/${userId}`);
+            const { status, data } = await axios.get(`http://localhost:5000/api/v1/category/${userId}`, {
+                headers: {
+                    Authorization: `Bearer ${userToken}`
+                }
+            });
 
             let userSelectedCategory = [];
             if (status === 200) {
@@ -168,23 +178,32 @@ const Home = () => {
                         categories.slice(startIndex, lastIndex).map((currElem, index) => (
                             <div className='categoryLists' key={index}>
                                 <label className='custom-label' htmlFor={currElem.toLowerCase()}>{currElem}</label>
-                                <input
-                                    type="checkbox"
-                                    name={currElem.toLowerCase()}
-                                    id={currElem.toLowerCase()}
-                                    value={currElem}
-                                    onChange={(e) => handleInputs(e, currElem)}
-                                    checked={savedCategory && savedCategory.includes(currElem) || false}
+                                {loading ? <ColorRing
+                                    visible={true}
+                                    height="80"
+                                    width="80"
+                                    ariaLabel="color-ring-loading"
+                                    wrapperStyle={{}}
+                                    wrapperClass="color-ring-wrapper"
+                                    colors={['#e15b64', '#f47e60', '#f8b26a', '#abbd81', '#849b87']}
+                                /> :
+                                    <input
+                                        type="checkbox"
+                                        name={currElem.toLowerCase()}
+                                        id={currElem.toLowerCase()}
+                                        value={currElem}
+                                        onChange={(e) => handleInputs(e, currElem)}
+                                        checked={savedCategory && savedCategory.includes(currElem) || false}
 
-                                />
-
+                                    />
+                                }
                             </div>
                         ))
                     }
                 </div>
 
                 <div className="controls">
-                    <button type="button" className={pageBtn === 'prev'? 'activePageBtn' : ''}  onClick={handlePrevious}>{'<<<'}</button>
+                    <button type="button" className={pageBtn === 'prev' ? 'activePageBtn' : ''} onClick={handlePrevious}>{'<<<'}</button>
                     {Array.from({ length: Math.min(totalPage, 7) }, (_, index) => {
                         const pageNum = index + pageNums.startPageNum;
                         return (
@@ -197,7 +216,7 @@ const Home = () => {
                             />
                         );
                     })}
-                    <button type="button" className={pageBtn === 'next'? 'activePageBtn' : ''} onClick={handleNext}>{'>>>'}</button>
+                    <button type="button" className={pageBtn === 'next' ? 'activePageBtn' : ''} onClick={handleNext}>{'>>>'}</button>
                 </div>
 
             </div>

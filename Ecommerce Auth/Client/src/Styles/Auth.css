@@ -85,6 +85,25 @@
     cursor: pointer;
 }
 
+#login .showPassword {
+    display: flex;
+    align-items: center;
+}
+
+#login .showPassword input:first-child{
+    border-right: none;
+    border-radius: 0.37rem 0 0 0.37rem;
+}
+
+#login .showPassword input:last-child{
+    width: 12%;
+    border-left: none;
+    border-radius: 0 0.37rem 0.37rem 0;
+    background: #fff;
+    text-decoration: underline;
+    color: #000000;
+    cursor: pointer;
+}
 
 /* Otp */
 
@@ -140,6 +159,13 @@
     }
 }
 
+@media screen and (max-width: 600px) {
+    
+#login .showPassword input:last-child{
+    width: 20%;
+}
+}
+
 @media screen and (max-width: 465px) {
     .authHead h2, .otpHeader h2 {
         font-size: 1.5rem;
@@ -150,6 +176,10 @@
 
     .authFooter p, .authHead p {
         font-size: 0.8rem;
+    }
+
+    #login .showPassword input:last-child{
+        width: 30%;
     }
 }
 
@@ -170,5 +200,9 @@
         height: 2rem;
         width: 1.5rem;
         border-radius: 0.1rem;
+    }
+
+    #login .showPassword input:last-child{
+        width: 40%;
     }
 }

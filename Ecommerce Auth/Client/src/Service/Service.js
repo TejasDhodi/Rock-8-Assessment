@@ -1,23 +1,28 @@
 export const loginCredentials = [
     {
         label: 'Email',
-        placeholder: 'test@gmail.com'
+        placeholder: 'test@gmail.com',
+        type: 'email'
     },
     {
         label: 'Password',
-        placeholder: 'Test@123'
+        placeholder: 'Test@123',
+        type: 'password'
     },
 ];
 
 export const registerCredentials = [
     {
-        label: 'Name'
+        label: 'Name',
+        type: 'text'
     },
     {
-        label: 'Email'
+        label: 'Email',
+        type: 'email'
     },
     {
-        label: 'Password'
+        label: 'Password',
+        type: 'password'
     },
 ];
 

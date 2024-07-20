@@ -11,6 +11,10 @@ body {
     font-family:sans-serif;
 }
 
+label {
+    display: block;
+}
+
 .carouselContainer {
     display: flex;
     justify-content: center;
