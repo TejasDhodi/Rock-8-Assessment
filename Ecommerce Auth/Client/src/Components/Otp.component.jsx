@@ -84,7 +84,7 @@ const Otp = ({ email, receivedOtp, inputs }) => {
       const joinedOtp = Number(otpValues.join(''));
       console.log(joinedOtp);
 
-      const { status, data } = await axios.post(`${import.meta.env.VITE_CONNECTION_URL}/api/v1/auth/registerUser`, {
+      const { status, data } = await axios.post(`https://rock-8-assessment.onrender.com/api/v1/auth/registerUser`, {
         email: inputs.email,
         name: inputs.name,
         password: inputs.password,
