@@ -31,7 +31,7 @@ const Auth = ({ title, h3, p, button, footer1, footer2, navigate, inputs, handle
                       <input type={inputType ? 'password' : 'text'} name={label.toLocaleLowerCase()} value={inputs[label.toLocaleLowerCase()]} onChange={handleInputs} placeholder={placeholder ? placeholder : 'Enter'} required />
                       <input type="button" value="Show" onClick={toggleShowPassword} />
                     </div> :
-                    <input type={type ? 'password' : 'text'} name={label.toLocaleLowerCase()} value={inputs[label.toLocaleLowerCase()]} onChange={handleInputs} placeholder={placeholder ? placeholder : 'Enter'} required />
+                    <input type={type==='password' ? 'password' : 'text'} name={label.toLocaleLowerCase()} value={inputs[label.toLocaleLowerCase()]} onChange={handleInputs} placeholder={placeholder ? placeholder : 'Enter'} required />
                 }
               </div>
             )
