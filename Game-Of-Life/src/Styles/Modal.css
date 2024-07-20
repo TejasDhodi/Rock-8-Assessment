@@ -1,0 +1,84 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 500px;
+  text-align: center;
+  position: relative;
+}
+
+.cursor-point {
+  position: relative;
+  margin: 20px 0;
+}
+
+.cursor {
+  position: absolute;
+  top: 4rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 36px;
+  background: url(http://pngimg.com/uploads/cursor/cursor_PNG87.png) no-repeat center center;
+  background-size: cover;
+  animation: bounce 1s infinite;
+}
+
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateX(-50%) translateY(0);
+  }
+
+  50% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+}
+
+.grid-placeholder {
+  width: 100px;
+  height: 100px;
+  border: 1px solid #ccc;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  background-image: url('https://tse3.mm.bing.net/th?id=OIP.D3jk7YGFKJiSf1R3V7pwLQHaDt&pid=Api&P=0&h=220');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.modal-content button {
+  padding: 0.5rem 1rem;
+  border-radius: 12.5rem;
+  border: none;
+  background: #1565C0;
+  color: #f1f1f1;
+  cursor: pointer;
+}
+
+.modal-content h2 {
+  color: #003c78;
+  margin-bottom: 0.4rem;
+}
+
+.modal-content p {
+  opacity: 0.5;
+  font-weight: bold;
+}
+

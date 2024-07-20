@@ -1,0 +1,66 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.title {
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.title h1 {
+  color: #003c78;;
+}
+.gameControls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  margin: 1rem 0 2rem 0;
+}
+
+.gameControls button {
+  padding: 1rem 1.5rem;
+  border: none;
+  border-radius: 0.375rem;
+  color: aliceblue;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.gameControls .green {
+  background-color: green;
+}
+
+.gameControls button:nth-child(2) {
+  background-color: rgb(16, 118, 128);
+}
+
+.gameControls button:last-child {
+  background-color: #05081e;
+}
+
+
+.gameControls .red {
+  background-color: red;
+}
+
+.grid {
+  display: grid;
+  gap: 1px;
+  justify-content: center;
+  margin: 20px;
+}
+.cell {
+  width: 20px;
+  height: 20px;
+  border: solid 1px gray;
+  cursor: pointer;
+}
+.cell.alive {
+  background-color: black;
+}
+.cell.dead {
+  background-color: white;
+}
