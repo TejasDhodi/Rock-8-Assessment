@@ -20,7 +20,7 @@ const App = () => {
 
   const handleUserProfile = async () => {
     try {
-      const { status, data } = await axios.get('http://localhost:5000/api/v1/auth/userProfile', {
+      const { status, data } = await axios.get(`${url}/api/v1/auth/userProfile`, {
         headers: {
           "Content-Type": 'application/json',
           Authorization: `Bearer ${userToken}`
