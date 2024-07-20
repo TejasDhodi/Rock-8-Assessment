@@ -19,6 +19,8 @@ const Login = () => {
 
     const [inputs, setInputs] = useState(initialInputState);
     const [errorMsg, setErrorMsg] = useState(null)
+    const [loading, setLoading] = useState(false);
+
     const handleInputs = (e) => {
         const { name, value } = e.target;
         setInputs({
@@ -33,7 +35,7 @@ const Login = () => {
 
     const handleSubmit = async (e) => {
         try {
-            
+            setLoading(true)
             const {data, status} = await axios.post('http://localhost:5000/api/v1/auth/loginUser', inputs, {
                 headers: {
                     "Content-Type": 'application/json'
@@ -41,6 +43,7 @@ const Login = () => {
             })
 
             if(status === 200) {
+                setLoading(false);
                 alert('Login Successfull')
                 dispatch(saveAuthToken(data.userToken))
                 console.log(data);
@@ -48,6 +51,7 @@ const Login = () => {
             } 
 
         } catch (error) {
+            setLoading(false)
             setErrorMsg(error.response.data.message)
             console.log('Error from login page catch : ', error);
         }
@@ -68,6 +72,7 @@ const Login = () => {
                 handleSubmit={handleSubmit}
                 credentials={loginCredentials}
                 error={errorMsg}
+                loading={loading}
             />
         </section>
     )

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const Auth = ({ title, h3, p, button, footer1, footer2, navigate, inputs, handleInputs, handleSubmit, credentials, error }) => {
+const Auth = ({ title, h3, p, button, footer1, footer2, navigate, inputs, handleInputs, handleSubmit, credentials, error, loading }) => {
 
   const [inputType, setInputType] = useState(true);
 
@@ -40,7 +40,7 @@ const Auth = ({ title, h3, p, button, footer1, footer2, navigate, inputs, handle
       </div>
 
       <div className="authControl">
-        <button type='button' onClick={handleSubmit}>{button}</button>
+        <button type='button' onClick={handleSubmit}>{loading? '...': button}</button>
       </div>
       <div className="authFooter"><p>{footer1} <span onClick={navigate}>{footer2}</span></p></div>
     </div>

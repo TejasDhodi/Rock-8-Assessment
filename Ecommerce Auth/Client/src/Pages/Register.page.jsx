@@ -22,6 +22,7 @@ const Register = () => {
     const [showOtp, setShowOtp] = useState(false);
     const [receivedOtp, setReceivedOtp] = useState(null);
     const [errorMsg, setErrorMsg] = useState(null);
+    const [loading, setLoading] = useState(false);
 
     const handleInputs = (e) => {
 
@@ -39,6 +40,7 @@ const Register = () => {
 
     const handleSendOtp = async (e) => {
         try {
+            setLoading(true)
 
             if (!inputs.name && !inputs.email && !inputs.password) {
                 setErrorMsg('All Fields are mandatory')
@@ -53,6 +55,7 @@ const Register = () => {
                     }
                 })
                 if (status === 200) {
+                    setLoading(false)
                     alert('Otp sent successfully')
                     setShowOtp(true)
                     setReceivedOtp(data.otp)
@@ -61,6 +64,7 @@ const Register = () => {
             }
 
         } catch (error) {
+            setLoading(false)
             setErrorMsg(error.response.data.message)
             alert(error.response.data.message)
             console.log('Error from Register Handler catch : ', error.response.data.message);
@@ -86,6 +90,7 @@ const Register = () => {
                         handleSubmit={handleSendOtp}
                         credentials={registerCredentials}
                         error={errorMsg}
+                        loading={loading}
                     />
             }
 

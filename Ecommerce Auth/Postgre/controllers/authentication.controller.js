@@ -100,7 +100,12 @@ const loginUserController = async (req, res) => {
 
         const userExist = await User.findOne({ where: { email } });
 
-        if (!userExist) {
+        if (!email || !password) {
+            return res.status(400).json({
+                success: false,
+                message: "All Fields Are Mandatory",
+            });
+        } else if (!userExist) {
             return res.status(404).json({
                 success: false,
                 message: "User Not Found",
