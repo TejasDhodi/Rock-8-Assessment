@@ -102,7 +102,7 @@ const Home = () => {
             let updatedcategories = [];
 
             // Fetch Existing categories
-            const { data: existingData } = await axios.get(`${url}/api/v1/category/${userId}`, {
+            const { data: existingData } = await axios.get(`${import.meta.env.VITE_CONNECTION_URL}/api/v1/category/${userId}`, {
                 headers: {
                     Authorization: `Bearer ${userToken}`
                 }
@@ -119,7 +119,7 @@ const Home = () => {
             setSavedCategory(updatedcategories)
 
             // Sending update or new reuest
-            const { data } = await axios.put(`${url}/api/v1/category/addCategory`, {
+            const { data } = await axios.put(`${import.meta.env.VITE_CONNECTION_URL}/api/v1/category/addCategory`, {
                 category: updatedcategories,
             }, {
                 headers: {
@@ -137,8 +137,8 @@ const Home = () => {
 
     const getCategorydata = async () => {
         try {
-            const url = import.meta.env.VITE_CONNECTION_URL
-            const { status, data } = await axios.get(`${url}/api/v1/category/${userId}`, {
+            // const url = import.meta.env.VITE_CONNECTION_URL
+            const { status, data } = await axios.get(`${import.meta.env.VITE_CONNECTION_URL}/api/v1/category/${userId}`, {
                 headers: {
                     Authorization: `Bearer ${userToken}`
                 }

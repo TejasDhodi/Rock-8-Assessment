@@ -44,12 +44,15 @@ const Register = () => {
 
             if (!inputs.name && !inputs.email && !inputs.password) {
                 setErrorMsg('All Fields are mandatory')
+                setLoading(false)
             } else if (!isValidEmail(inputs.email)) {
                 setErrorMsg('Invalid Email Format')
+                setLoading(false)
             } else if (!isValidPassword(inputs.password)) {
                 setErrorMsg('Password must contain atleast 8 character and one special character')
+                setLoading(false)
             } else {
-                const { status, data } = await axios.post(`${url}/api/v1/auth/registerUser/sendOtp`, { email: inputs.email }, {
+                const { status, data } = await axios.post(`${import.meta.env.VITE_CONNECTION_URL}/api/v1/auth/registerUser/sendOtp`, { email: inputs.email }, {
                     headers: {
                         "Content-Type": 'application/json'
                     }
@@ -65,9 +68,9 @@ const Register = () => {
 
         } catch (error) {
             setLoading(false)
-            setErrorMsg(error.response.data.message)
-            alert(error.response.data.message)
-            console.log('Error from Register Handler catch : ', error.response.data.message);
+            setErrorMsg(error.response?.data?.message || 'An error occured')
+            alert(error.response?.data?.message || 'An error occured')
+            console.log('Error from Register Handler catch : ', error);
         }
     }
 

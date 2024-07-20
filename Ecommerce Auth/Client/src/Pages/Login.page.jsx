@@ -36,7 +36,7 @@ const Login = () => {
     const handleSubmit = async (e) => {
         try {
             setLoading(true)
-            const {data, status} = await axios.post(`${url}/api/v1/auth/loginUser`, inputs, {
+            const {data, status} = await axios.post(`${import.meta.env.VITE_CONNECTION_URL}/api/v1/auth/loginUser`, inputs, {
                 headers: {
                     "Content-Type": 'application/json'
                 }
